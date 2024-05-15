@@ -1,3 +1,431 @@
-/* 
-    General Styles
-*/
+body {
+    background-image: url('https://i.pinimg.com/originals/3d/c3/87/3dc387151b115cf7ae0cf344b8e40eff.gif');
+    background-size: cover; /* Para cubrir todo el fondo */
+    background-repeat: no-repeat; /* Evita que el gif se repita */
+    background-attachment: fixed; /* Fija la imagen en su posición mientras se desplaza */
+}  
+
+.navbar {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 5.5rem;
+    background-color: transparent; /* Cambio del color de fondo a transparente */
+}
+
+.dropdown-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-container {
+    display: flex;
+    width: 100%;
+    overflow-x: hidden;
+    padding: 20px 0; /* Mantenemos el padding */
+}
+
+.card-container-personaje,
+.card-container-planeta,
+.card-container-vehiculo {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.card {
+    min-width: 18rem;
+    flex-shrink: 0;
+    margin-right: 20px;
+    background-color: #212121; 
+    color: white;
+}
+
+
+h1 {
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 1rem;
+}
+
+img {
+    width: 600px;
+    height: 200px;
+    object-fit: cover;
+}
+
+#video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    object-fit: cover;
+    
+}
+
+.button.star-wars-button {
+    background-color: #333;
+    border: 2px solid #fff;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    font-family: "Arial", sans-serif;
+    font-size: 20px;
+}
+
+/* Cambios al pasar el mouse */
+.button:hover {
+    background-color: #555; /* Cambio de color de fondo al pasar el mouse */
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5); /* Sombra al pasar el mouse */
+}
+
+/* Cambios al hacer clic */
+.button:active {
+    transform: translateY(2px); /* Efecto de hundimiento al hacer clic */
+}
+
+/* Resto de estilos ... */
+
+/* this is the text, when you hover on button */
+.hover-text {
+    position: absolute;
+    box-sizing: border-box;
+    content: attr(data-text);
+    color: var(--animation-color);
+    width: 0%;
+    inset: 0;
+    border-right: var(--border-right) solid var(--animation-color);
+    overflow: hidden;
+    transition: 0.5s;
+    -webkit-text-stroke: 1px var(--animation-color);
+    font-size: 20px;
+}
+
+/* hover */
+.button:hover .hover-text {
+    width: 100%;
+    filter: drop-shadow(0 0 23px var(--animation-color))
+}
+
+.fav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    border: none;
+    background-color: transparent;
+    position: relative;
+}
+
+.fav::after {
+    content: 'like';
+    width: fit-content;
+    height: fit-content;
+    position: absolute;
+    font-size: 15px;
+    color: white;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    opacity: 0;
+    visibility: hidden;
+    transition: .2s linear;
+    top: 115%;
+}
+
+.icon {
+    width: 30px;
+    height: 30px;
+    transition: .2s linear;
+}
+
+.icon path {
+    fill: white;
+    transition: .2s linear;
+}
+
+.fav:hover>.icon {
+    transform: scale(1.2);
+}
+
+.fav:hover>.icon path {
+    fill: rgb(136, 6, 27);
+}
+
+.fav:hover::after {
+    visibility: visible;
+    opacity: 1;
+    top: 105%;
+}
+
+p {
+    color: white;
+}
+
+.dropdown {
+    position: relative;
+    display: block;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.button-dropdown {
+    background-color: #333;
+    border: 2px solid #fff;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    font-family: "Arial", sans-serif;
+    font-size: 20px;
+}
+
+.dropdown-content {
+    display: none;
+    font-size: 13px;
+    position: absolute;
+    z-index: 1;
+    min-width: 200px;
+    background-color: #212121;
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 0px 15px 15px 15px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown-content a {
+    color: #ffffff;
+    padding: 8px 10px;
+    text-decoration: none;
+    display: block;
+    transition: 0.1s;
+}
+
+.dropdown-content a:hover {
+    background-color: rgba(6, 95, 136, 0.637);
+    color: white;
+}
+
+.dropdown-content a:focus {
+    background-color: #212121;
+    color: #ffffff;
+}
+
+.dropdown-content #top:hover {
+    border-radius: 0px 13px 0px 0px;
+}
+
+.dropdown-content #bottom:hover {
+    border-radius: 0px 0px 13px 13px;
+}
+
+.dropdown:hover button {
+    border-radius: 15px 15px 0px 0px;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.botones-scroll {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    padding-bottom: 50px;
+}
+
+.scroll {
+    width: 45px;
+    height: 45px;
+    background: linear-gradient(#053051, #7ea3df);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    border: none;
+
+}
+
+.scroll.left {
+    transform: rotate(180deg);
+}
+
+.scroll.right {
+    transform: rotate(90deg);
+}
+
+.arrow path {
+    fill: white;
+}
+
+.text {
+    font-size: 0.7em;
+    width: 100px;
+    position: absolute;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    bottom: -18px;
+    opacity: 0;
+    transition-duration: 0.7s;
+}
+
+.scroll:hover .text {
+    opacity: 1;
+    transition-duration: 0.7s;
+}
+
+.scroll:hover .arrow {
+    animation: slide-in-bottom 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+@keyframes slide-in-bottom {
+    0% {
+        transform: translateY(10px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.trash {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: rgb(20, 20, 20);
+    border: none;
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.164);
+    cursor: pointer;
+    transition-duration: 0.3s;
+    overflow: hidden;
+    position: relative;
+    gap: 2px;
+}
+
+.svgIcon {
+    width: 10px;
+    transition-duration: 0.3s;
+}
+
+.svgIcon path {
+    fill: white;
+}
+
+.trash:hover {
+    transition-duration: 0.3s;
+    background-color: rgba(136, 6, 28, 0.637);
+    align-items: center;
+    gap: 0;
+}
+
+.bin-top {
+    transform-origin: bottom right;
+}
+
+.trash:hover .bin-top {
+    transition-duration: 0.5s;
+    transform: rotate(160deg);
+}
+
+.like {
+    --heart-color: rgb(151, 16, 38);
+    position: relative;
+    width: 30px;
+    height: 30px;
+    transition: .3s;
+}
+
+.like .checkbox {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    z-index: 20;
+    cursor: pointer;
+}
+
+.like .svg-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.like .svg-outline,
+.like .svg-filled {
+    fill: var(--heart-color);
+    position: absolute;
+}
+
+.like .svg-filled {
+    animation: keyframes-svg-filled 1s;
+    display: none;
+}
+
+.like .svg-celebrate {
+    position: absolute;
+    animation: keyframes-svg-celebrate .5s;
+    animation-fill-mode: forwards;
+    display: none;
+    stroke: var(--heart-color);
+    fill: var(--heart-color);
+    stroke-width: 2px;
+}
+
+.like .checkbox:checked~.svg-container .svg-filled {
+    display: block
+}
+
+.like .checkbox:checked~.svg-container .svg-celebrate {
+    display: block
+}
+
+@keyframes keyframes-svg-filled {
+    0% {
+        transform: scale(0);
+    }
+
+    25% {
+        transform: scale(1.2);
+    }
+
+    50% {
+        transform: scale(1);
+        filter: brightness(1.5);
+    }
+}
+
+@keyframes keyframes-svg-celebrate {
+    0% {
+        transform: scale(0);
+    }
+
+    50% {
+        opacity: 1;
+        filter: brightness(1.5);
+    }
+
+    100% {
+        transform: scale(1.4);
+        opacity: 0;
+        display: none;
+    }
+}

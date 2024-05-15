@@ -4,11 +4,19 @@ import ScrollToTop from "./component/scrollToTop";
 
 import { Home } from "./views/home";
 import { Demo } from "./views/demo";
-import { Single } from "./views/single";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
+import { cartaPlanetas } from "./component/cartaPlanetas";
+import { cartaPersonajes } from "./component/cartaPersonajes";
+import { cartaVehiculos } from "./component/cartaVehiculos";
+
+import { VistaPersonajeIndividual } from "./views/vistaPersonajeIndividual";
+import { VistaPlanetaIndividual } from "./views/vistaPlanetaIndividual";
+import { VistaVehiculoIndividual } from "./views/vistaVehiculoIndividual";
+
+
 
 //create your first component
 const Layout = () => {
@@ -23,8 +31,9 @@ const Layout = () => {
 					<Navbar />
 					<Routes>
 						<Route path="/" element={<Home />} />
-						<Route path="/demo" element={<Demo />} />
-						<Route path="/single/:theid" element={<Single />} />
+						<Route path="/vista-personaje-individual/:uid/:numero" element={<VistaPersonajeIndividual />} />
+						<Route path="/vista-planeta-individual/:uid/:numero" element={<VistaPlanetaIndividual />} />
+						<Route path="/vista-vehiculo-individual/:uid/:numero" element={<VistaVehiculoIndividual />} />
 						<Route path="*" element={<h1>Not found!</h1>} />
 					</Routes>
 					<Footer />
@@ -35,3 +44,5 @@ const Layout = () => {
 };
 
 export default injectContext(Layout);
+
+{/* <Route path="/cartaIndividual" element={<VistaCartaIndividual />}></Route> */}
